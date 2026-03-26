@@ -349,3 +349,31 @@ type Salary {
 - [User Types](../00-overview/03-user-types.md)
 - [Wallet & Payment](../03-wallet/03-wallet-payment.md)
 - [Security & Compliance](../12-security/13-security-compliance.md)
+
+```mermaid
+graph TD
+    subgraph Recruitment [Recruitment]
+        Job[Job Posting]
+        JobApplication[Job Application]
+        Interview[Interview Process]
+    end
+
+    subgraph HR [HR Management]
+        Employee[Employee Record]
+        Department[Department]
+        Position[Position]
+    end
+
+    subgraph Payroll [Payroll]
+        Salary[Salary]
+        Payment[Payment]
+    end
+
+    Admin[Admin] -- "creates" --> Job
+    User[User] -- "submits" --> JobApplication
+    JobApplication -- "becomes" --> Interview
+    Interview -- "results in" --> Employee
+    Employee -- "assigned to" --> Department
+    Employee -- "receives" --> Salary
+    Salary -- "processed as" --> Payment
+```

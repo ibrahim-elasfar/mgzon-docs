@@ -397,3 +397,33 @@ type SystemInfo {
 - [User Types](../00-overview/03-user-types.md)
 - [System Core](../01-core/01-system-core.md)
 - [Security & Compliance](../12-security/13-security-compliance.md)
+
+```mermaid
+graph TD
+    subgraph UserGovernance [User Governance]
+        UserMgmt[User Management]
+        RoleMgmt[Role Management]
+        ApprovalWorkflow[Approval Workflow]
+    end
+
+    subgraph PlatformInsights [Platform Insights]
+        Analytics[Analytics]
+        Reports[Reports]
+        AuditLog[Audit Log]
+    end
+
+    subgraph Operations [Operations]
+        BulkOperations[Bulk Actions]
+        SystemHealth[Health Check]
+        SettingsMgmt[Settings]
+    end
+
+    Admin[Admin] -- "uses" --> UserMgmt
+    Admin -- "configures" --> RoleMgmt
+    Admin -- "oversees" --> ApprovalWorkflow
+    Analytics -- "generates" --> Reports
+    BulkOperations -- "logged in" --> AuditLog
+    Admin -- "performs" --> BulkOperations
+    Admin -- "monitors" --> SystemHealth
+    Admin -- "manages" --> SettingsMgmt
+```

@@ -419,3 +419,32 @@ type LandStats {
 ## Related Documentation
 - [Admin Governance](../07-admin/07-admin-governance.md)
 - [Security & Compliance](../12-security/13-security-compliance.md)
+
+```mermaid
+graph TD
+    subgraph LandOwnership [Land Ownership]
+        LandOwner[Land Owner]
+        Land[Land Parcel]
+        Heir[Heir]
+    end
+
+    subgraph LandTransactions [Land Transactions]
+        LandSale[Sale]
+        LandTransfer[Transfer]
+        Document[Document]
+    end
+
+    subgraph InheritanceCalculation [Inheritance]
+        IslamicShares[Islamic Shares]
+        Distribution[Distribution]
+    end
+
+    LandOwner -- "owns" --> Land
+    Land -- "has" --> Heir
+    LandSale -- "initiates" --> LandTransfer
+    LandTransfer -- "requires" --> Document
+    LandTransfer -- "updates" --> LandOwner
+    Heir -- "used in" --> IslamicShares
+    IslamicShares -- "generates" --> Distribution
+    Distribution -- "applied to" --> Land
+```

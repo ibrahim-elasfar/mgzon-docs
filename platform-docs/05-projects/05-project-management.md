@@ -324,3 +324,17 @@ type Dispute {
 - [HR Management](../04-hr/04-jobs-hr.md)
 - [Wallet & Payment](../03-wallet/03-wallet-payment.md)
 - [Security & Compliance](../12-security/13-security-compliance.md)
+
+```mermaid
+graph TD
+    Client[Client] -- "creates" --> Project[Project]
+    Employee[Employee] -- "submits" --> Bid[Bid]
+    Project -- "receives" --> Bid
+    Client -- "accepts" --> Bid
+    Accept -- "creates" --> Contract[Contract]
+    Contract -- "contains" --> Milestone[Milestone]
+    Employee -- "submits work to" --> Submission[Submission]
+    Submission -- "reviewed for" --> Milestone
+    Contract -- "can lead to" --> Dispute[Dispute]
+    Dispute -- "resolved by Admin" --> Resolution[Resolution]
+```
